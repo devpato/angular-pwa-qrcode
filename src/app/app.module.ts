@@ -8,13 +8,15 @@ import { environment } from '../environments/environment';
 import { ScannerComponent } from './scanner/scanner.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { GuestListComponent } from './guest-list/guest-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScannerComponent,
     RegistrationComponent,
-    GuestListComponent
+    GuestListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
