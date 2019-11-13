@@ -7,12 +7,14 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ScannerComponent } from './scanner/scanner.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { GuestListComponent } from './guest-list/guest-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScannerComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    GuestListComponent
   ],
   imports: [
     BrowserModule,
