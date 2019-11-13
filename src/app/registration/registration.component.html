@@ -1,1 +1,31 @@
-<p>registration works!</p>
+<div class="registration">
+  <h2>Welcome to Registration App!</h2>
+  <span>Please enter your information to register for the event.</span>
+  <div class="registration-form">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="ui left corner labeled input field">
+        <input
+          type="text"
+          placeholder="Fist Name"
+          formControlName="firstName"
+        />
+        <div class="ui left corner label">
+          <i class="asterisk icon"></i>
+        </div>
+      </div>
+      <div class="ui left corner labeled input field">
+        <input type="text" placeholder="Last Name" formControlName="lastName" />
+        <div class="ui left corner label">
+          <i class="asterisk icon"></i>
+        </div>
+      </div>
+      <button
+        class="ui inverted orange button"
+        type="submit"
+        [disabled]="!registrationForm.valid"
+      >
+        Registration
+      </button>
+    </form>
+  </div>
+</div>
