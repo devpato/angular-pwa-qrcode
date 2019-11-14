@@ -4,7 +4,13 @@
       <tr *ngFor="let g of guestList">
         <td data-label="firstName">{{ g.firstName }}</td>
         <td data-label="lastName">{{ g.lastName }}</td>
-        <td data-label="qr">{{ g.qr }}</td>
+        <td data-label="qr">
+          <ngx-qrcode
+            [qrc-element-type]="elementType"
+            [qrc-value]="g.qr"
+            class="qrcode"
+          ></ngx-qrcode>
+        </td>
       </tr>
     </tbody>
   </table>
