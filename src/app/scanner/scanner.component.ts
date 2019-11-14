@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { Guest } from "../guest.model";
 import { GuestService } from "../guest.service";
 import { find, map } from "rxjs/operators";
+import { runInThisContext } from "vm";
 
 @Component({
   selector: "app-scanner",
@@ -28,6 +29,7 @@ export class ScannerComponent implements OnInit {
     this.guestExist = null;
     this.qrResult = JSON.parse(resultString);
     this.checkInGuest();
+    this.clearMessage();
   }
 
   onHasPermission(has: boolean): void {
@@ -46,12 +48,33 @@ export class ScannerComponent implements OnInit {
           this.guestExist = true;
         } else {
           this.guestExist = false;
-
-          setTimeout(() => {
-            this.guestExist = null;
-          }, 3000);
         }
         this.clearResult();
+        this.clearMessage();
       });
+  }
+
+  clearMessage() {
+    setTimeout(() => {
+      this.guestExist = null;
+    }, 20000);
+  }
+
+  checkQRJSON(qrString: string): boolean {
+    if (
+      /^[\],:{}\s]*$/.test(
+        qrString
+          .replace(/\\["\\\/bfnrtu]/g, "@")
+          .replace(
+            /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+            "]"
+          )
+          .replace(/(?:^|:|,)(?:\s*\[)+/g, "")
+      )
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
