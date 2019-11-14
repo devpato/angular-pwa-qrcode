@@ -62,7 +62,7 @@ export class ScannerComponent implements OnInit {
   clearMessage() {
     setTimeout(() => {
       this.guestExist = null;
-    }, 20000);
+    }, 3000);
   }
 
   checkQRJSON(qrString: string): boolean {
