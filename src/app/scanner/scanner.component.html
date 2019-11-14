@@ -1,1 +1,7 @@
-<p>scanner works!</p>
+<zxing-scanner
+  #scanner
+  [(device)]="currentDevice"
+  (scanSuccess)="onCodeResult($event)"
+  (permissionResponse)="onHasPermission($event)"
+  (camerasFound)="onCamerasFound($event)"
+></zxing-scanner>
