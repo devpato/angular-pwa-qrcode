@@ -1,0 +1,23 @@
+::ng-deep {
+  .qr-scan-area {
+    position: relative;
+    zxing-scanner {
+      max-width: 100%;
+    }
+
+    .qr-area {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - 50px);
+      top: 0;
+      width: 100%;
+      .area {
+        height: 200px;
+        width: 200px;
+        border: 2px solid red;
+      }
+    }
+  }
+}
