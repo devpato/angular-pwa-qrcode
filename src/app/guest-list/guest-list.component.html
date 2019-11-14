@@ -1,1 +1,11 @@
-<p>guest-list works!</p>
+<div class="guest-list">
+  <table class="ui celled table" *ngIf="guestList$ | async as guestList">
+    <tbody>
+      <tr *ngFor="let g of guestList">
+        <td data-label="firstName">{{ g.firstName }}</td>
+        <td data-label="lastName">{{ g.lastName }}</td>
+        <td data-label="qr">{{ g.qr }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
