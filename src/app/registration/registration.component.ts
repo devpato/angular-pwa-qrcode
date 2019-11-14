@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { Validators } from "@angular/forms";
+import { v4 as uuid } from "uuid";
+import { GuestService } from "../guest.service";
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
@@ -12,11 +14,13 @@ export class RegistrationComponent implements OnInit {
     lastName: ["", Validators.required]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private guestService: GuestService) {}
 
   ngOnInit() {}
 
-  onSubmit() {
-    console.log(this.registrationForm.value);
+  onSubmit(): void {
+    const guest = { ...this.registrationForm.value, id: uuid() };
+    guest.qr = JSON.stringify(guest);
+    this.guestService.addGuest(guest);
   }
 }
