@@ -9,6 +9,7 @@ import { ScannerComponent } from "./scanner/scanner.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { GuestListComponent } from "./guest-list/guest-list.component";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { NgxQRCodeModule } from "ngx-qrcode2";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
   ],
   imports: [
     BrowserModule,
+    NgxQRCodeModule,
     AppRoutingModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
