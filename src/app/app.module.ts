@@ -10,16 +10,14 @@ import { RegistrationComponent } from "./registration/registration.component";
 import { GuestListComponent } from "./guest-list/guest-list.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { NgxQRCodeModule } from "ngx-qrcode2";
-import { ZXingScannerComponent } from "@zxing/ngx-scanner";
-
+import { ZXingScannerModule } from "@zxing/ngx-scanner";
 @NgModule({
   declarations: [
     AppComponent,
     ScannerComponent,
     RegistrationComponent,
     GuestListComponent,
-    NavbarComponent,
-    ZXingScannerComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +26,8 @@ import { ZXingScannerComponent } from "@zxing/ngx-scanner";
     ReactiveFormsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
-    })
+    }),
+    ZXingScannerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
