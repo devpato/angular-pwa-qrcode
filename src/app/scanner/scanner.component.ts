@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Guest } from "../guest.model";
 import { GuestService } from "../guest.service";
-import { find, map } from "rxjs/operators";
-import { runInThisContext } from "vm";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-scanner",
