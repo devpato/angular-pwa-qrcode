@@ -10,6 +10,7 @@ import { RegistrationComponent } from "./registration/registration.component";
 import { GuestListComponent } from "./guest-list/guest-list.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { NgxQRCodeModule } from "ngx-qrcode2";
+import { ZXingScannerComponent } from "@zxing/ngx-scanner";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgxQRCodeModule } from "ngx-qrcode2";
     ScannerComponent,
     RegistrationComponent,
     GuestListComponent,
-    NavbarComponent
+    NavbarComponent,
+    ZXingScannerComponent
   ],
   imports: [
     BrowserModule,
