@@ -8,6 +8,7 @@ import { GuestService } from "../guest.service";
 })
 export class GuestListComponent implements OnInit {
   guestList$ = this.guestService.guests$;
+  elementType: "url" | "canvas" | "img" = "url";
   constructor(private guestService: GuestService) {}
   ngOnInit() {}
 }
