@@ -1,5 +1,6 @@
 export interface Guest {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
+  qr: string;
 }
