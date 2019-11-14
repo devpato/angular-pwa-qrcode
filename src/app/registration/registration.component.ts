@@ -3,6 +3,7 @@ import { FormBuilder } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { v4 as uuid } from "uuid";
 import { GuestService } from "../guest.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
@@ -14,7 +15,11 @@ export class RegistrationComponent implements OnInit {
     lastName: ["", Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private guestService: GuestService) {}
+  constructor(
+    private fb: FormBuilder,
+    private guestService: GuestService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -22,5 +27,7 @@ export class RegistrationComponent implements OnInit {
     const guest = { ...this.registrationForm.value, id: uuid() };
     guest.qr = JSON.stringify(guest);
     this.guestService.addGuest(guest);
+    this.registrationForm.reset();
+    this.router.navigate(["/guests"]);
   }
 }
