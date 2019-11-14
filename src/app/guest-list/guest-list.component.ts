@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { GuestService } from "../guest.service";
 
 @Component({
-  selector: 'app-guest-list',
-  templateUrl: './guest-list.component.html',
-  styleUrls: ['./guest-list.component.scss']
+  selector: "app-guest-list",
+  templateUrl: "./guest-list.component.html",
+  styleUrls: ["./guest-list.component.scss"]
 })
 export class GuestListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  guestList$ = this.guestService.guests$;
+  constructor(private guestService: GuestService) {}
+  ngOnInit() {}
 }
