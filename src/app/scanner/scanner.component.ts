@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Guest } from "../guest.model";
+import { GuestService } from "../guest.service";
+import { find, map } from "rxjs/operators";
 
 @Component({
   selector: "app-scanner",
@@ -11,31 +13,45 @@ export class ScannerComponent implements OnInit {
   currentDevice: MediaDeviceInfo = null;
   hasDevices: boolean;
   hasPermission: boolean;
-  qrResultString: string;
+  qrResult: Guest;
+  guestExist: boolean;
 
-  constructor() {}
+  constructor(private guestService: GuestService) {}
 
   ngOnInit(): void {}
 
   clearResult(): void {
-    this.qrResultString = null;
+    this.qrResult = null;
   }
 
-  onCamerasFound(devices: MediaDeviceInfo[]): void {
-    this.availableDevices = devices;
-    this.hasDevices = Boolean(devices && devices.length);
+  onCodeResult(resultString: string): void {
+    this.guestExist = null;
+    this.qrResult = JSON.parse(resultString);
+    this.checkInGuest();
   }
 
-  onCodeResult(resultString: string) {
-    this.qrResultString = resultString;
-  }
-
-  onDeviceSelectChange(selected: string) {
-    const device = this.availableDevices.find(x => x.deviceId === selected);
-    this.currentDevice = device || null;
-  }
-
-  onHasPermission(has: boolean) {
+  onHasPermission(has: boolean): void {
     this.hasPermission = has;
+  }
+
+  checkInGuest(): void {
+    this.guestService.guests$
+      .pipe(
+        map(guests =>
+          guests.find((guest: Guest) => guest.id === this.qrResult.id)
+        )
+      )
+      .subscribe(guest => {
+        if (guest !== null && guest !== undefined) {
+          this.guestExist = true;
+        } else {
+          this.guestExist = false;
+
+          setTimeout(() => {
+            this.guestExist = null;
+          }, 3000);
+        }
+        this.clearResult();
+      });
   }
 }
