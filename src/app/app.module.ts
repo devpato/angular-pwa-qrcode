@@ -21,13 +21,14 @@ import { ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    NgxQRCodeModule,
+    ,
     AppRoutingModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     }),
     ReactiveFormsModule,
-    ZXingScannerModule
+    ZXingScannerModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
