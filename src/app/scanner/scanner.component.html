@@ -1,4 +1,5 @@
 <div class="qr-scan-area">
+  <!-- This is the npm package in-charge of scanning the QR -->
   <zxing-scanner
     #scanner
     [(device)]="currentDevice"
@@ -10,6 +11,7 @@
   </div>
 </div>
 
+<!-- Displays message on the screen if guest is valid or not -->
 <div class="guest">
   <ng-container *ngIf="guestExist">
     <div class="ui success message">
