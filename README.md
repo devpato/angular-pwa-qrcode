@@ -1,4 +1,4 @@
-# QrApp
+# QR Code Event Registration App - Angular PWA
 
 In this tutorial I'm going to show you how to create a simple PWA that you can install in your phone. This PWA will be able to create QR codes and read them as well. With this app, you will have more control of your guests for your next event! 
 
