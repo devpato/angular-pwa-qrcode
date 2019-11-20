@@ -5,8 +5,8 @@ In this tutorial I'm going to show you how to create a simple PWA that you can i
 
 In this app, we are going to suppose is a registration app for your event.
 
-## The final code:
-https://github.com/devpato/angular-pwa-qrcode
+## Tutorial:
+https://dev.to/devpato/qr-code-event-registration-app-angular-pwa-2fhe
 
 ## Live App:
 https://qr-app-79289.firebaseapp.com/
